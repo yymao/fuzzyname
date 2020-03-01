@@ -2,8 +2,16 @@
 fuzzyname: for better name comparison
 """
 
+try:
+    from unidecode import unidecode
+except ImportError:
+    _HAS_UNIDECODE = False
+else:
+    _HAS_UNIDECODE = True
+
 __all__ = ['Name']
 __version__ = '0.1.0'
+
 
 class Name(object):
     """
@@ -12,10 +20,15 @@ class Name(object):
     name: string
     exact: bool, optional
     """
-    def __init__(self, name, exact=False):
-        self.name = name
-        if ',' in name:
-            name = '{0[1]} {0[0]}'.format(name.split(','))
+    def __init__(self, name, exact=False, use_unidecode=False):
+        if use_unidecode:
+            if not _HAS_UNIDECODE:
+                raise RuntimeError("Cannot import unidecode package. Please install unidecode or set `use_unidecode` to False")
+            self.name = unidecode(name)
+        else:
+            self.name = name
+        if ',' in self.name:
+            self.name = '{0[1]} {0[0]}'.format(self.name.split(','))
         self.names = tuple((n.lower() for n in name.replace('-', ' ').replace('.', '. ').split() if n != '.'))
         assert self.names, '*name* must not be empty'
         self.exact = bool(exact)

@@ -1,4 +1,5 @@
-from fuzzyname import Name
+from fuzzyname import FuzzyName as Name
+
 
 def test_fuzzyname():
     assert Name('Vanessa T. Porter') == Name('V. T. Porter')
@@ -16,3 +17,6 @@ def test_fuzzyname():
     assert Name('Vanessa Porter') != Name('Violet Porter')
     assert Name('Li Qin Ho', exact=True) != Name('L. Ho')
     assert Name('Li Qin Ho', exact=True) != Name('Li Qi Ho')
+    assert Name('Bill Gates') == Name('William Gates')
+    assert Name('Bill Gates', exact=True) != Name('William Gates')
+    assert Name('André François') == Name('Andre Francois')

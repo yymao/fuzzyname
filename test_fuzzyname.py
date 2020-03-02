@@ -1,3 +1,6 @@
+# This Python file uses the following encoding: utf-8
+
+from __future__ import unicode_literals
 from fuzzyname import FuzzyName as Name
 
 
@@ -19,4 +22,4 @@ def test_fuzzyname():
     assert Name("Li Qin Ho", exact=True) != Name("Li Qi Ho")
     assert Name("Bill Gates") == Name("William Gates")
     assert Name("Bill Gates", exact=True) != Name("William Gates")
-    assert Name(u"André François") == Name("Andre Francois")
+    assert Name("André François") == Name("Andre Francois")

@@ -98,7 +98,7 @@ class Name(object):
 
             a = a.rstrip(".")
             b = b.rstrip(".")
-            initials = (len(a) == 1 or len(b) == 1)
+            initials = len(a) == 1 or len(b) == 1
 
             if exact and not initials:
                 return True

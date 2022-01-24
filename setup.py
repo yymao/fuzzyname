@@ -3,7 +3,7 @@
 A simple Python class for easier name matching (especially in academia)
 Project website: https://github.com/yymao/fuzzyname
 The MIT License (MIT)
-Copyright (c) 2018-2020 Yao-Yuan Mao (yymao)
+Copyright (c) 2018-2022 Yao-Yuan Mao (yymao)
 http://opensource.org/licenses/MIT
 """
 
@@ -32,6 +32,9 @@ setup(
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
     ],
     keywords="fuzzyname",
     packages=find_packages(),
